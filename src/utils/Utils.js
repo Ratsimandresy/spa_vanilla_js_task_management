@@ -35,14 +35,17 @@ const Utils = {
     },
 
     toggleActive: (e) => {
-        const entries = e.target.parentElement.parentElement.childNodes;
-        const filtered = Array.prototype.filter.call(
-            entries,
-            (node) => node.nodeName != "#text"
-        );
-        filtered.forEach((entry) => {
-            entry !== e.target.parentElement && entry.classList.add("active");
-            entry.classList.toggle("active");
+        const parent = e.target.parentElement;
+        const grandParent = parent.parentElement;
+        const entries = Array.from(document.querySelectorAll(".nav__entry"));
+
+        entries.forEach((entry) => {
+            if (entry !== parent && entry !== grandParent) {
+                entry.classList.remove("active");
+            }
+            else {
+                entry.classList.toggle("active");
+            }
         });
     },
 };
