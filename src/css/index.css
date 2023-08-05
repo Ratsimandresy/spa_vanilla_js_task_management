@@ -53,6 +53,15 @@ a {
     transition: 250ms ease-out;
 }
 
+.collapsed #menu header {
+    height: 103.75px;
+}
+
+.collapsed #menu header h2,
+.collapsed #menu header .material-icons {
+    display: none;
+}
+
 .collapsed #nav_collapse_btn {
     left: 66px;
     transition: 250ms ease-out;
@@ -60,10 +69,9 @@ a {
 
 .collapsed .nav__entry {
     width: 64%;
-  padding-left: 16px;
+    padding-left: 16px;
 }
 
 .collapsed .nav .nav__entry a:not(.icon) {
-   display: none;
+    display: none;
 }
-
