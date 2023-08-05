@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+@import "./nav.css";
+@import "./animation.css";
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L",
+        "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --primary: #3a7b99;
+    --secondary: #425a7d;
+    --secondary-light: #a0c0d6;
+    --white: #ffffff;
+    --dark: #2a3240;
+    --error: #d7425d;
+    --warning: #fa8d70;
+    --success: #2eb1a1;
+}
+
+a {
+    text-decoration: none;
+}
+
+#app {
+    height: 100vh;
+    display: flex;
+    font-family: "Lato", sans-serif;
+    box-sizing: border-box;
+    background-color: var(--white);
+    letter-spacing: .5px;
+}
+
+#page {
+    flex: 3;
+}
+
+.page__content {
+    animation: 1s fadeIn;
+}
