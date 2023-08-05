@@ -30,13 +30,13 @@
 .nav .nav__entry {
     height: 48px;
     background-color: var(--dark);
-    width: 92%;
+    width: 88%;
     border-radius: 4px;
     display: flex;
     align-items: center;
     color: var(--secondary);
     font-weight: 800;
-    padding-left: 8px;
+    padding-left: 16px;
 }
 
 .nav .nav__entry a {

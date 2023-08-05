@@ -1,7 +1,7 @@
 import { router, navigateTo } from "./router/index.js";
 import Utils from "./utils/Utils.js";
 
-const { initializeApp, toggleActive } = Utils;
+const { initializeApp, toggleActive, collapse } = Utils;
 
 window.addEventListener("load", async () => {
     await initializeApp();
@@ -15,16 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.target.matches("[data-link]")) {
             e.preventDefault();
             navigateTo(e.target.href);
+            toggleActive(e);
         }
     });
     router();
-});
 
-document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener("click", (e) => {
-        if (e.target.matches("[data-link]")) {
+        if (e.target.matches("[data-collapsed]")) {
             e.preventDefault();
-            toggleActive(e);
+            collapse(e);
         }
     });
 });

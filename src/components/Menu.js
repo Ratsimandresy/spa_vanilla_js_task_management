@@ -52,8 +52,8 @@ export default class extends AbstractView {
                 </a>
             </p>
         </nav>
-        <button id="nav_collapse_btn">
-            <i class="material-icons">chevron_left</i>
+        <button data-collapsed id="nav_collapse_btn">
+            <i data-collapsed class="material-icons">chevron_left</i>
         </button>
     </aside>
         `;

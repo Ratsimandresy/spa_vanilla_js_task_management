@@ -42,11 +42,25 @@ const Utils = {
         entries.forEach((entry) => {
             if (entry !== parent && entry !== grandParent) {
                 entry.classList.remove("active");
-            }
-            else {
+            } else {
                 entry.classList.toggle("active");
             }
         });
+    },
+
+    collapse: (e) => {
+        e.preventDefault();
+        const app = document.getElementById("app");
+        const btn = document.getElementById("nav_collapse_btn");
+        app.classList.toggle("collapsed");
+
+        if (app.classList.contains("collapsed")) {
+            btn.innerHTML =
+                "<i data-collapsed class='material-icons'>chevron_right</i>";
+        } else {
+            btn.innerHTML =
+                "<i data-collapsed class='material-icons'>chevron_left</i>";
+        }
     },
 };
 
