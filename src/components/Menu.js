@@ -15,7 +15,7 @@ export default class extends AbstractView {
         <nav class="nav">
             <p class="nav__entry active">
                 <i class="material-icons">
-                    <a href="/" class="nav__link" data-link>
+                    <a href="/" class="nav__link icon" data-link>
                         local_activity
                     </a>
                 </i>
@@ -23,7 +23,7 @@ export default class extends AbstractView {
             </p>
             <p data-link class="nav__entry">
                 <i class="material-icons">
-                    <a href="/dashboard" class="nav__link" data-link>
+                    <a href="/dashboard" class="nav__link icon" data-link>
                         dashboard
                     </a>
                 </i>
@@ -33,7 +33,7 @@ export default class extends AbstractView {
             </p>
             <p class="nav__entry">
                 <i class="material-icons">
-                    <a href="/form" class="nav__link" data-link>
+                    <a href="/form" class="nav__link icon" data-link>
                         add_circle
                     </a>
                 </i>
@@ -43,7 +43,7 @@ export default class extends AbstractView {
             </p>
             <p class="nav__entry">
                 <i class="material-icons">
-                    <a href="/calendar" class="nav__link" data-link>
+                    <a href="/calendar" class="nav__link icon" data-link>
                         calendar_month
                     </a>
                 </i>

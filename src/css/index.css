@@ -33,7 +33,7 @@ a {
     font-family: "Lato", sans-serif;
     box-sizing: border-box;
     background-color: var(--white);
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
 }
 
 #page {
@@ -43,3 +43,27 @@ a {
 .page__content {
     animation: 1s fadeIn;
 }
+
+#app.collapsed {
+    transition: 250ms ease-out;
+}
+
+.collapsed #menu {
+    width: 72px;
+    transition: 250ms ease-out;
+}
+
+.collapsed #nav_collapse_btn {
+    left: 66px;
+    transition: 250ms ease-out;
+}
+
+.collapsed .nav__entry {
+    width: 64%;
+  padding-left: 16px;
+}
+
+.collapsed .nav .nav__entry a:not(.icon) {
+   display: none;
+}
+
