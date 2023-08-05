@@ -13,7 +13,11 @@
 #menu header {
     display: flex;
     align-items: center;
-    color: var(--secondary);
+    color: var(--white);
+}
+
+#menu header .material-icons {
+    color: var(--white);
 }
 
 .nav {
@@ -33,7 +37,10 @@
     color: var(--secondary);
     font-weight: 800;
     padding-left: 8px;
-    transition: 0.1s ease-in;
+}
+
+.nav .nav__entry a {
+    font-size: larger;
 }
 
 .nav .nav__entry:hover,
