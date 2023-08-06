@@ -30,7 +30,7 @@ const TaskCard = ({ label, description, start_date, end_date }) => {
     const timePassed = Utils.timeSince(start_date);
 
     return `
-        <div class="task_card" id="{label}" key$"${label}">
+        <div class="task_card" id="${id}" key="${id}">
             <div class="round">
                 <input type="checkbox" checked id="checkbox-${label}" />
                  <label for="checkbox-${label}"></label>

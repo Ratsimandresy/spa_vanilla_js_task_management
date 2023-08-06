@@ -28,11 +28,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    document.body.addEventListener("click", (e) => {
+    document.body.addEventListener("click", async (e) => {
         if (e.target.matches("[data-dlt-btn]")) {
-            e.preventDefault();
             const taskLabel = e.target.dataset.label;
-            service.remove(taskLabel);
+            const task = e.target.parentNode.parentNode.parentNode;
+            setTimeout(() => {
+                task.classList.add("deleted");
+            }, 300);
+
+            setTimeout(async () => {
+                task.remove();
+                await service.remove(taskLabel);
+            }, 1000);
         }
     });
 });

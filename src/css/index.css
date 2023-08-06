@@ -95,3 +95,7 @@ a {
 .collapsed .nav .nav__entry a:not(.icon) {
     display: none;
 }
+
+.deleted {
+    animation: fadeOut 1.1s;
+}

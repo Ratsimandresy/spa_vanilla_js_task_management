@@ -8,6 +8,8 @@
     width: auto;
     padding: 12px;
     position: relative;
+    opacity: 1;
+    transition: opacity 1s ease-out;
 }
 
 /* button checkbox */
@@ -109,18 +111,6 @@
 .cards_btn button.btn {
     display: contents;
 }
-/* .cards_btn button.btn {
-    cursor: pointer;
-    outline: none;
-    background: transparent;
-    border: none;
-}
-
-.cards_btn button.btn:active {
-    outline: none;
-    background: transparent;
-    border: none;
-} */
 
 .btn .material-icons {
     color: var(--grey);
