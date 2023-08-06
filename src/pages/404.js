@@ -6,9 +6,9 @@ export default class extends AbstractView {
         this.setTitle("Not found");
     }
 
-    async getHtml() {
+    async render() {
         return `
-            <h1>Page Not Found !! oops</h1>
+            <h1>Sorry, there was error</h1>
            
         `;
     }

@@ -6,7 +6,7 @@ export default class extends AbstractView {
         this.setTitle("Home");
     }
 
-    async getHtml() {
+    async render() {
         return `
         <section class="page__content">
             <h1>Welcome back, Dom</h1>

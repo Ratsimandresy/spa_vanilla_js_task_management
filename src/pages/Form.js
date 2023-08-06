@@ -6,7 +6,7 @@ export default class extends AbstractView {
         this.setTitle("Add task");
     }
 
-    async getHtml() {
+    async render() {
         return `
         <section class="page__content">
         <h1>Add task</h1>

@@ -26,7 +26,7 @@ const Utils = {
 
     initializeApp: async () => {
         const app = document.querySelector("#app");
-        app.innerHTML = await menu.getHtml();
+        app.innerHTML = await menu.render();
 
         const content = document.createElement("div");
         content.setAttribute("id", "page");

@@ -5,7 +5,7 @@ export default class extends AbstractView {
         super(params);
     }
 
-    async getHtml() {
+    async render() {
         return `
         <aside id="menu">
         <header>
