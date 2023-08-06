@@ -5,6 +5,29 @@ export default class extends AbstractView {
         super(params);
     }
 
+    entries = [
+        {
+            title: "Today",
+            path: "/",
+            icon: "local_activity",
+        },
+        {
+            title: "Dashboard",
+            path: "/dashboard",
+            icon: "dashboard",
+        },
+        {
+            title: "Add task",
+            path: "/form",
+            icon: "add_circle",
+        },
+        {
+            title: "Calendar",
+            path: "/calendar",
+            icon: "calendar_month",
+        },
+    ];
+
     async render() {
         return `
         <aside id="menu">
@@ -13,44 +36,19 @@ export default class extends AbstractView {
             <i class="material-icons">checklist</i>
         </header>
         <nav class="nav">
-            <p class="nav__entry active">
-                <i class="material-icons">
-                    <a href="/" class="nav__link icon" data-link>
-                        local_activity
-                    </a>
-                </i>
-                <a href="/" class="nav__link" data-link> Today </a>
-            </p>
-            <p data-link class="nav__entry">
-                <i class="material-icons">
-                    <a href="/dashboard" class="nav__link icon" data-link>
-                        dashboard
-                    </a>
-                </i>
-                <a href="/dashboard" class="nav__link" data-link>
-                    Dashboard
-                </a>
-            </p>
-            <p class="nav__entry">
-                <i class="material-icons">
-                    <a href="/form" class="nav__link icon" data-link>
-                        add_circle
-                    </a>
-                </i>
-                <a href="/form" class="nav__link" data-link>
-                    Add task
-                </a>
-            </p>
-            <p class="nav__entry">
-                <i class="material-icons">
-                    <a href="/calendar" class="nav__link icon" data-link>
-                        calendar_month
-                    </a>
-                </i>
-                <a href="/calendar" class="nav__link" data-link>
-                    Calendar
-                </a>
-            </p>
+        ${this.entries.map(
+            ({ title, icon, path }) => `
+                <p class="nav__entry">
+                    <i class="material-icons">
+                        <a href="/" class="nav__link icon" data-link>
+                            ${icon}
+                        </a>
+                    </i>
+                    <a href="${path}" class="nav__link" data-link> ${title} </a>
+                </p>
+        `
+        )}
+           
         </nav>
         <button data-collapsed id="nav_collapse_btn">
             <i data-collapsed class="material-icons">chevron_left</i>

@@ -48,6 +48,11 @@ a {
     letter-spacing: 0.5px;
 }
 
+#menu {
+    min-height: auto;
+    overflow: scroll;
+}
+
 #page {
     flex: 3;
     min-height: auto;
@@ -55,7 +60,7 @@ a {
 }
 
 .page__content {
-    animation: .4s fadeIn;
+    animation: 0.4s fadeIn;
     padding: 24px;
 }
 
