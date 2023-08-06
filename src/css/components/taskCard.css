@@ -10,6 +10,20 @@
     position: relative;
     opacity: 1;
     transition: opacity 1s ease-out;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#dashboard .task_card:hover {
+    background-color: var(--white-less);
+}
+
+#dashboard .task_card:hover p:first-of-type a{
+    color: var(--primary-dark);
+}
+
+#dashboard .task_card:hover p:first-of-type bold::first-letter{
+    color: var(--primary-dark);
 }
 
 /* button checkbox */
@@ -78,6 +92,7 @@
     color: var(--white-less);
     text-transform: capitalize;
 }
+
 .task_card p:first-of-type a {
     text-decoration: none;
     color: var(--white-less);
