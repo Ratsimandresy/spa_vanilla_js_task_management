@@ -5,7 +5,9 @@
     justify-content: space-between;
     align-items: center;
     height: 62px;
+    width: auto;
     padding: 12px;
+    position: relative;
 }
 
 /* button checkbox */
@@ -67,7 +69,7 @@
     justify-content: space-between;
     gap: 8px;
     height: 32px;
-    flex: 50%;
+    flex: 45%;
 }
 
 .task_card p:first-of-type bold:first-letter {
@@ -88,7 +90,36 @@
 
 .task_card p:last-of-type {
     color: var(--primary-dark);
-    flex: 40%;
     display: flex;
     align-items: center;
+    width: auto;
+    height: auto;
+    flex: 30%;
+}
+
+/* delete buttons */
+.cards_btn {
+    width: 42px;
+    flex: 10%;
+}
+
+.cards_btn button:focus {
+    outline: none;
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+.cards_btn button:active {
+    outline: none;
+    background: transparent;
+    border: 1px solid grey;
+}
+
+.btn .material-icons {
+    color: var(--grey);
+    font-size: large;
+}
+
+.btn:hover .material-icons {
+    color: var(--primary-dark);
 }

@@ -23,7 +23,7 @@ const TaskCard = ({ label, description, start_date, end_date }) => {
             </p>
             `;
         }
-        return `<p></p>`;
+        return `<p> </p>`;
     };
 
     const deleteTask = (e) => {
@@ -31,11 +31,17 @@ const TaskCard = ({ label, description, start_date, end_date }) => {
         console.log(e.target);
     };
 
-    const deleteBtn = () => {
+    const buttons = () => {
+        const id = label.split(" ").join("-");
         return `
-            <button id="${label}">
-                <i class="material-icons">delete</i>
+        <div class="cards_btn">
+            <button class="btn edit_button" id="edit-${id}">
+                <i class="material-icons">edit_outlined</i>
             </button>
+            <button class="btn delete_button" id="delete-${id}">
+                <i class="material-icons">delete_outlined</i>
+            </button>
+        </div>    
         `;
     };
 
@@ -56,7 +62,7 @@ const TaskCard = ({ label, description, start_date, end_date }) => {
                 </small>
             </p>
             ${dueDateElement()}
-            ${deleteBtn()}
+            ${buttons()}
         </div>
 `;
 };
