@@ -1,4 +1,5 @@
 import Utils from "../../utils/Utils.js";
+import { remove } from "../../services/index.js";
 
 const TaskCard = ({ label, description, start_date, end_date }) => {
     let dueDate;
@@ -25,6 +26,19 @@ const TaskCard = ({ label, description, start_date, end_date }) => {
         return `<p></p>`;
     };
 
+    const deleteTask = (e) => {
+        e.preventDefault();
+        console.log(e.target);
+    };
+
+    const deleteBtn = () => {
+        return `
+            <button id="${label}">
+                <i class="material-icons">delete</i>
+            </button>
+        `;
+    };
+
     const timePassed = Utils.timeSince(start_date);
 
     return `
@@ -42,6 +56,7 @@ const TaskCard = ({ label, description, start_date, end_date }) => {
                 </small>
             </p>
             ${dueDateElement()}
+            ${deleteBtn()}
         </div>
 `;
 };

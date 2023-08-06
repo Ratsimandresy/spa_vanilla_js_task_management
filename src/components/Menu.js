@@ -36,18 +36,20 @@ export default class extends AbstractView {
             <i class="material-icons">checklist</i>
         </header>
         <nav class="nav">
-        ${this.entries.map(
-            ({ title, icon, path }) => `
+        ${this.entries
+            .map(
+                ({ title, icon, path }) => `
                 <p class="nav__entry">
                     <i class="material-icons">
-                        <a href="/" class="nav__link icon" data-link>
+                        <a href="${path}" class="nav__link icon" data-link>
                             ${icon}
                         </a>
                     </i>
                     <a href="${path}" class="nav__link" data-link> ${title} </a>
                 </p>
         `
-        )}
+            )
+            .join("")}
            
         </nav>
         <button data-collapsed id="nav_collapse_btn">

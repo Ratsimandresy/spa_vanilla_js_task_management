@@ -2,6 +2,7 @@ import AbstractView from "./AbstractView.js";
 import { getTasks } from "../services/index.js";
 import ErrorPAge from "./404.js";
 import TaskCard from "../components/Dashboard/TaskCard.js";
+
 export default class Dashboard extends AbstractView {
     constructor(params) {
         super(params);
