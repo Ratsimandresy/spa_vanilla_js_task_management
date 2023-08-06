@@ -75,8 +75,12 @@
 }
 
 .task_card p:first-of-type bold:first-letter {
-    color: #f7f3f3;
+    color: var(--white-less);
     text-transform: capitalize;
+}
+.task_card p:first-of-type a {
+    text-decoration: none;
+    color: var(--white-less);
 }
 
 .task_card p:first-of-type small {

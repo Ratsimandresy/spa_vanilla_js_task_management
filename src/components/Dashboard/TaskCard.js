@@ -37,7 +37,9 @@ const TaskCard = ({ label, description, start_date, end_date }) => {
              </div>
             <p>
                <bold>
+                  <a href="/tasks/${label}" data-link>
                     ${label}
+                  </a>
                </bold> 
                 <small>
                     ${timePassed}
