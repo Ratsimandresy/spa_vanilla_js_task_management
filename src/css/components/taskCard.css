@@ -12,6 +12,7 @@
     transition: opacity 1s ease-out;
     transition: background-color 0.3s ease-in-out;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #dashboard .task_card:hover {

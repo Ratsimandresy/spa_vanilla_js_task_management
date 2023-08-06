@@ -9,8 +9,9 @@ export default class extends AbstractView {
 
     async render() {
         return `
-            <h1>Single Task</h1>
-            <p>You are viewing post #${this.taskId}.</p>
+            <section id="task-view" class="page__content">
+                
+            </section>
         `;
     }
 }
