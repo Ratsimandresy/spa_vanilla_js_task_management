@@ -1,0 +1,105 @@
+#task-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0px 24px 0px 0;
+}
+
+#task-view .task__content {
+    background-color: var(--secondary-light);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    height: 95%;
+    width: 85%;
+    max-width: 800px;
+    padding: 12px;
+    position: relative;
+    opacity: 1;
+    border: none;
+    transition: opacity 1s ease-out;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.task__content div.inner_card {
+    height: auto;
+    padding: 8px;
+    width: 95%;
+    /*     border-radius: 12px;
+    background-color: var(--white);
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+        rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; */
+}
+
+.task__content div.inner_card.bg {
+    border-radius: 2px;
+    background-color: var(--white);
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+        rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+.task__content h1 {
+    color: var(--white);
+    letter-spacing: 1px;
+}
+
+.task__content h1::first-letter {
+    text-transform: capitalize;
+}
+.task__content .inner_card div:first-of-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task__content .inner_card div.task_state.in_progress {
+    color: var(--warning);
+    border: 1px solid var(--warning);
+    background-color: var(--white);
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.task__content small {
+    color: var(--grey);
+    font-weight: 700;
+}
+
+/* task description */
+
+.task__content .inner_card div.task_description,
+.task__content .inner_card div.task_dueDate {
+    color: var(--primary-dark);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+}
+
+.task__content .inner_card.description {
+    height: 50%;
+}
+
+.task__content .inner_card.description small {
+    font-size: medium;
+    font-weight: 500;
+}
+
+.task__content .inner_card p {
+    font-weight: 700;
+}
+
+.task__content .inner_card div.task_description .material-icons {
+    color: var(--primary-dark);
+    width: 21px;
+    height: 24px;
+}
+
+.inner_card .task_dueDate span {
+    color: var(--error);
+}

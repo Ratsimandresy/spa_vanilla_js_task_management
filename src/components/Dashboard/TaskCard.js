@@ -3,12 +3,7 @@ import Utils from "../../utils/Utils.js";
 const TaskCard = ({ label, description, start_date, end_date }) => {
     let dueDate;
     if (end_date) {
-        dueDate = new Date(end_date)
-            .toJSON()
-            .slice(0, 10)
-            .split("-")
-            .reverse()
-            .join("/");
+        dueDate = Utils.formatDate(end_date);
     }
 
     const dueDateElement = () => {

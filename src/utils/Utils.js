@@ -86,6 +86,17 @@ const Utils = {
 
         return result || "just now";
     },
+    formatDate: (date) => {
+        if (date) {
+            return new Date(date)
+                .toJSON()
+                .slice(0, 10)
+                .split("-")
+                .reverse()
+                .join("/");
+        }
+        return "No due date set";
+    },
 };
 
 export default Utils;

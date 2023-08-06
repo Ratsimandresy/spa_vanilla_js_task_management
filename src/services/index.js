@@ -34,6 +34,16 @@ const service = {
             return null;
         }
     },
+    getTask: async (taskLabel) => {
+        try {
+            const response = await fetch(`${BASE_URL}/${taskLabel}`);
+            const task = response.json();
+            return task;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    },
     add: async (newTask) => {
         try {
             const response = await fetch(BASE_URL, {
