@@ -12,6 +12,7 @@
 
 .round {
     position: relative;
+    flex: 15%;
 }
 
 .round label {
@@ -66,6 +67,7 @@
     justify-content: space-between;
     gap: 8px;
     height: 32px;
+    flex: 50%;
 }
 
 .task_card p:first-of-type bold:first-letter {
@@ -84,7 +86,7 @@
     text-overflow: ellipsis;
 }
 
-
 .task_card p:last-of-type {
     color: var(--primary-dark);
+    flex: 40%;
 }

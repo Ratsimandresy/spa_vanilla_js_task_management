@@ -62,6 +62,30 @@ const Utils = {
                 "<i data-collapsed class='material-icons'>chevron_left</i>";
         }
     },
+    timeSince: (date) => {
+        const units = [
+            "years",
+            "months",
+            "days",
+            "hours",
+            "minutes",
+            "seconds",
+        ];
+        const durations = [31536000, 2592000, 86400, 3600, 60, 1];
+
+        const seconds = Math.floor((new Date() - new Date(date)) / 1000);
+        let result = "";
+
+        for (let i = 0; i < units.length; i++) {
+            const interval = seconds / durations[i];
+            if (interval >= 1) {
+                result = `${Math.floor(interval)} ${units[i]} ago`;
+                break;
+            }
+        }
+
+        return result || "just now";
+    },
 };
 
 export default Utils;

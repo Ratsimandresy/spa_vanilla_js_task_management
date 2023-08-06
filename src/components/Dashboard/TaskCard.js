@@ -1,7 +1,31 @@
-const TaskCard = ({ label, description, start_date }) => {
+import Utils from "../../utils/Utils.js";
 
-    const date = new Date(start_date).toJSON().slice(0,10).split('-').reverse().join('/')
+const TaskCard = ({ label, description, start_date, end_date }) => {
+    let dueDate;
+    if (end_date) {
+        dueDate = new Date(end_date)
+            .toJSON()
+            .slice(0, 10)
+            .split("-")
+            .reverse()
+            .join("/");
+    }
 
+    const dueDateElement = () => {
+        if (dueDate) {
+            return `
+            <p>
+                <i class="material-icons">calendar_month</i>
+                <span>
+                    ${dueDate}
+                </span>
+        </p>
+            `;
+        }
+        return `<p></p>`;
+    };
+
+    const timePassed = Utils.timeSince(start_date);
 
     return `
         <div class="task_card" id="{label}" key$"${label}">
@@ -14,15 +38,10 @@ const TaskCard = ({ label, description, start_date }) => {
                     ${label}
                </bold> 
                 <small>
-                    2 min ago
+                    ${timePassed}
                 </small>
             </p>
-            <p>
-                <i class="material-icons">calendar_month</i>
-                <span>
-                    ${date}
-                </span>
-            </p>
+            ${dueDateElement()}
         </div>
 `;
 };
