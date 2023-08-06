@@ -1,5 +1,4 @@
 import Utils from "../../utils/Utils.js";
-import { remove } from "../../services/index.js";
 
 const TaskCard = ({ label, description, start_date, end_date }) => {
     let dueDate;
@@ -26,22 +25,7 @@ const TaskCard = ({ label, description, start_date, end_date }) => {
         return `<p> </p>`;
     };
 
-    const deleteTask = (e) => {
-        e.preventDefault();
-        console.log(e.target);
-    };
-
-    const buttons = () => {
-        const id = label.split(" ").join("-");
-        return `
-        <div class="cards_btn">
-            
-            <button class="btn delete_button" id="delete-${id}">
-                <i class="material-icons">delete_outlined</i>
-            </button>
-        </div>    
-        `;
-    };
+    const id = label.split(" ").join("-");
 
     const timePassed = Utils.timeSince(start_date);
 
@@ -60,7 +44,11 @@ const TaskCard = ({ label, description, start_date, end_date }) => {
                 </small>
             </p>
             ${dueDateElement()}
-            ${buttons()}
+            <div class="cards_btn">   
+            <button data-dlt-btn class="btn delete_button" id="delete-${id}">
+                <i data-label="${label}" data-dlt-btn class="material-icons">delete_outlined</i>
+            </button>
+        </div>
         </div>
 `;
 };

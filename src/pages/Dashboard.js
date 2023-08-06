@@ -1,5 +1,5 @@
 import AbstractView from "./AbstractView.js";
-import { getTasks } from "../services/index.js";
+import Service from "../services/index.js";
 import ErrorPAge from "./404.js";
 import TaskCard from "../components/Dashboard/TaskCard.js";
 
@@ -9,7 +9,7 @@ export default class Dashboard extends AbstractView {
         this.setTitle("Dashboard");
     }
 
-    getTasks = async () => await getTasks();
+    getTasks = async () => await Service.getTasks();
 
     async render() {
         try {

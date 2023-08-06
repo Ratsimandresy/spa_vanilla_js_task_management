@@ -107,6 +107,9 @@
 }
 
 .cards_btn button.btn {
+    display: contents;
+}
+/* .cards_btn button.btn {
     cursor: pointer;
     outline: none;
     background: transparent;
@@ -117,11 +120,12 @@
     outline: none;
     background: transparent;
     border: none;
-}
+} */
 
 .btn .material-icons {
     color: var(--grey);
     font-size: large;
+    cursor: pointer;
 }
 
 .btn:hover .material-icons {

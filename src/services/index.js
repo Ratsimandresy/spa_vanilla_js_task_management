@@ -23,53 +23,54 @@ const apiCall = async (method, body) => {
     }
 };
 
-const getTasks = async () => {
-    try {
-        const response = await apiCall("get");
-        const tasks = response.json();
-        return tasks;
-    } catch (error) {
-        console.log(error);
-        return null;
-    }
+const service = {
+    getTasks: async () => {
+        try {
+            const response = await fetch(BASE_URL);
+            const tasks = response.json();
+            return tasks;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    },
+    add: async (newTask) => {
+        try {
+            const response = await fetch(BASE_URL, {
+                method: "post",
+                body: JSON.stringify(newTask),
+            });
+            const json = response.json();
+            return json;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    remove: async (taskLabel) => {
+        try {
+            await fetch(`${BASE_URL}/${taskLabel}`, { method: "delete" });
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    update: async (taskLabel, updatedTask) => {
+        try {
+            const response = await fetch(`${BASE_URL}/${taskLabel}`);
+            if (!response) return;
+
+            const copy = { ...response };
+
+            Object.keys(copy).forEach((key) => {
+                copy[key] = updatedTask[key];
+            });
+
+            await await fetch(`${BASE_URL}/${taskLabel}`, {
+                method: "put",
+                body: JSON.stringify(updatedTask),
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
-
-const add = async (newTask) => {
-    try {
-        const response = await apiCall("post", newTask);
-        const json = response.json();
-        return json;
-    } catch (error) {
-        console.log(error);
-    }
-};
-
-const remove = async (taskLabel) => {
-    try {
-        await apiCall(`${BASE_URL}/${taskLabel}`, MethodType.DELETE);
-    } catch (error) {
-        console.log(error);
-    }
-};
-
-const update = async (taskName, updatedTask) => {
-    try {
-        const response = await apiCall(
-            `${BASE_URL}${taskName}`,
-            MethodType.GET
-        );
-        if (!response) return;
-
-        const copy = { ...response };
-
-        Object.keys(copy).forEach((key) => {
-            copy[key] = updatedTask[key];
-        });
-
-        await apiCall(`${BASE_URL}/${taskName}`, MethodType.PUT, updatedTask);
-    } catch (error) {
-        console.log(error);
-    }
-};
-
-export { apiCall, getTasks, add, remove, update };
+export default service;
