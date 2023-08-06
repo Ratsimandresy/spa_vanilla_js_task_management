@@ -89,4 +89,6 @@
 .task_card p:last-of-type {
     color: var(--primary-dark);
     flex: 40%;
+    display: flex;
+    align-items: center;
 }

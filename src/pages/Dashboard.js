@@ -2,7 +2,6 @@ import AbstractView from "./AbstractView.js";
 import { getTasks } from "../services/index.js";
 import ErrorPAge from "./404.js";
 import TaskCard from "../components/Dashboard/TaskCard.js";
-
 export default class Dashboard extends AbstractView {
     constructor(params) {
         super(params);
@@ -18,7 +17,6 @@ export default class Dashboard extends AbstractView {
             return `
          <section id="dashboard" class="page__content">
              <h1>Dashboard</h1>
-
              <div class="cards_container">
                 ${tasks && tasks.map(TaskCard).join("")}
             </div>

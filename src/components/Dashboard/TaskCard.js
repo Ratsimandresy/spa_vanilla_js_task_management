@@ -19,7 +19,7 @@ const TaskCard = ({ label, description, start_date, end_date }) => {
                 <span>
                     ${dueDate}
                 </span>
-        </p>
+            </p>
             `;
         }
         return `<p></p>`;

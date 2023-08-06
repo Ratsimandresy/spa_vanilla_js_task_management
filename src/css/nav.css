@@ -12,7 +12,7 @@
 }
 
 #menu header {
-    display: flex;
+    display: none;
     align-items: center;
     color: var(--white);
 }
@@ -88,14 +88,12 @@
     color: var(--white);
 }
 
-@media (max-height: 1024px) {
+@media (min-width: 1024px) and (min-height: 522px) {
     #menu header {
-        display: none;
+        display: flex;
     }
 }
 
-@media (max-width: 667px) {
-}
 
 @media (max-width: 440px) {
     #app {

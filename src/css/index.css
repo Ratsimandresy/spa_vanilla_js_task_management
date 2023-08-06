@@ -7,11 +7,18 @@
 
 html,
 body {
+    height: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L",
         "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 :root {
@@ -43,10 +50,12 @@ a {
 
 #page {
     flex: 3;
+    min-height: auto;
+    overflow: scroll;
 }
 
 .page__content {
-    animation: 1s fadeIn;
+    animation: .4s fadeIn;
     padding: 24px;
 }
 
