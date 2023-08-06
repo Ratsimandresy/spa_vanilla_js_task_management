@@ -101,18 +101,22 @@
 .cards_btn {
     width: 42px;
     flex: 10%;
+    position: absolute;
+    right: 0;
+    top: 8px;
 }
 
-.cards_btn button:focus {
+.cards_btn button.btn {
+    cursor: pointer;
     outline: none;
     background: transparent;
-    border: 1px solid transparent;
+    border: none;
 }
 
-.cards_btn button:active {
+.cards_btn button.btn:active {
     outline: none;
     background: transparent;
-    border: 1px solid grey;
+    border: none;
 }
 
 .btn .material-icons {

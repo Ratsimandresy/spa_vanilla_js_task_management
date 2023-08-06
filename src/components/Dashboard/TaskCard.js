@@ -35,9 +35,7 @@ const TaskCard = ({ label, description, start_date, end_date }) => {
         const id = label.split(" ").join("-");
         return `
         <div class="cards_btn">
-            <button class="btn edit_button" id="edit-${id}">
-                <i class="material-icons">edit_outlined</i>
-            </button>
+            
             <button class="btn delete_button" id="delete-${id}">
                 <i class="material-icons">delete_outlined</i>
             </button>
