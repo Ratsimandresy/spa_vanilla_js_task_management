@@ -7,3 +7,7 @@
     flex-direction: column;
     gap: 16px;
 }
+
+.is-hidden {
+    display: none;
+}

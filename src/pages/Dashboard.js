@@ -15,13 +15,33 @@ export default class Dashboard extends AbstractView {
 
     getTasks = async () => await service.getTasks();
 
+    search() {
+        let cards = document.querySelectorAll(".task_card");
+        let search_query = document.getElementById("searchBox").value;
+
+        cards.forEach((card) => {
+            const dateSearch = card.childNodes[5].childNodes[3].innerText;
+            const titleSearch = card.childNodes[3].childNodes[1].innerText;
+            if (
+                dateSearch.toLowerCase().includes(search_query.toLowerCase()) ||
+                titleSearch.toLowerCase().includes(search_query.toLowerCase())
+            ) {
+                card.classList.remove("is-hidden");
+            } else {
+                card.classList.add("is-hidden");
+            }
+        });
+    }
+
     async render() {
         try {
             this.tasks = await this.getTasks();
 
             return `
          <section id="dashboard" class="page__content">
-             <h1>Dashboard</h1>
+             <div id="search-box">
+                <input type="search" id="searchBox">
+             </div>
              <div class="cards_container">
                 ${this.tasks && this.tasks.reverse().map(TaskCard).join("")}
             </div>
@@ -36,9 +56,12 @@ export default class Dashboard extends AbstractView {
 
     async after_render() {
         try {
+            const searchBox = document.getElementById("search-box");
             const toast = new Toast("", "info", "Task deleted !");
             const toast_container = document.querySelector(".toast_container");
             const checkBoxes = document.querySelectorAll(".round input");
+
+            if (searchBox) searchBox.oninput = this.search;
 
             checkBoxes.forEach((btn) => {
                 btn.checked = false;
@@ -56,6 +79,8 @@ export default class Dashboard extends AbstractView {
                         title.style.color = "white";
                         card.style.backgroundColor = "#a0c0d6";
                     }
+                    card.classList.toggle("completed");
+                    this.render();
                 });
             });
 

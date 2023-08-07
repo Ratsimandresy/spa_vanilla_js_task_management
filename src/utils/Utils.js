@@ -97,6 +97,12 @@ const Utils = {
         }
         return "No due date set";
     },
+    checkPastDate: (date) => {
+        const dueDate = new Date(date);
+        const currentDate = new Date();
+
+        return dueDate.getTime() < currentDate.getTime();
+    },
 };
 
 export default Utils;

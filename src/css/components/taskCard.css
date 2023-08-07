@@ -15,15 +15,29 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+#dashboard .task_card.is-hidden {
+    display: none;
+}
+
+#dashboard .task_card.expired,
+#dashboard .task_card.expired:hover {
+    background-color: var(--error);
+}
+
+#dashboard .task_card.expired .round input,
+#dashboard .task_card.expired .round label {
+    display: none;
+}
+
 #dashboard .task_card:hover {
     background-color: var(--white-less);
 }
 
-#dashboard .task_card:hover p:first-of-type a{
+#dashboard .task_card:hover p:first-of-type a {
     color: var(--primary-dark);
 }
 
-#dashboard .task_card:hover p:first-of-type bold::first-letter{
+#dashboard .task_card:hover p:first-of-type bold::first-letter {
     color: var(--primary-dark);
 }
 

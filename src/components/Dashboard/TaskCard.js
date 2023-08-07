@@ -24,8 +24,12 @@ const TaskCard = ({ label, description, start_date, end_date }) => {
 
     const timePassed = Utils.timeSince(start_date);
 
+    const isPast = Utils.checkPastDate(end_date);
+
     return `
-        <div class="task_card" id="${id}" key="${id}" data-name="${label}">
+        <div class="task_card ${
+            isPast ? "expired" : ""
+        }" id="${id}" key="${id}" data-name="${label}">
             <div class="round">
                 <input type="checkbox" checked id="checkbox-${label}" />
                  <label for="checkbox-${label}"></label>
