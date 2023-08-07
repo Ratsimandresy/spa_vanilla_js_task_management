@@ -23,7 +23,6 @@
     border: none;
     transition: opacity 1s ease-out;
     transition: background-color 0.3s ease-in-out;
-    cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .task__content div.inner_card {
@@ -37,7 +36,7 @@
 }
 
 .task__content div.inner_card.bg {
-    border-radius: 2px;
+    border-radius: 4px;
     background-color: var(--white);
     box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
         rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
@@ -102,4 +101,30 @@
 
 .inner_card .task_dueDate span {
     color: var(--error);
+    font-weight: 600;
+}
+
+.inner_card form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 42px;
+}
+
+.inner_card label[for="due-date"],
+.inner_card input[name="due-date"] {
+    color: var(--grey);
+    font-size: small;
+    font-weight: 700;
+}
+
+.inner_card #due-date-input {
+    border: 1px solid var(--grey);
+    border-radius: 6px;
+    height: 20px;
+}
+
+.inner_card.bg .material-icons.due-date {
+    color: var(--success);
+    cursor: pointer;
 }

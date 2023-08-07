@@ -34,6 +34,8 @@ const router = async () => {
     const page = document.querySelector("#app").childNodes[3];
 
     page ? (page.innerHTML = await view.render()) : null;
+
+    await view.after_render();
 };
 
 export { navigateTo, router };
