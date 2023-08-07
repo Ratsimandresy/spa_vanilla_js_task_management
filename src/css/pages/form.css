@@ -1,0 +1,94 @@
+#form-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0px 24px 0px 0;
+}
+
+#form-view .form__content {
+    background-color: var(--secondary-light);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    align-items: center;
+    height: 95%;
+    width: 85%;
+    max-width: 800px;
+    padding: 12px;
+    position: relative;
+    opacity: 1;
+    border: none;
+    transition: opacity 1s ease-out;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#form-view .form__header {
+    display: flex;
+    align-items: center;
+}
+
+#form-view .form__header h1 {
+    color: var(--white);
+    font-weight: 900;
+    font-size: 32px;
+}
+
+#form-view .form__header .material-icons {
+    font-size: 64px;
+    color: var(--white);
+}
+
+#form-view .form__content #task-form {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    justify-content: space-around;
+}
+
+#task-form input:first-of-type,
+#task-form textarea {
+    width: inherit;
+    background-color: var(--white);
+    color: var(--primary-dark);
+    border: none;
+    padding: 12px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    outline: none;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 4px;
+}
+
+#task-form input:first-of-type {
+    height: 52px;
+}
+
+#task-form button {
+    background: var(--white);
+    border: none;
+    cursor: pointer;
+    background: var(--white);
+    border: none;
+    cursor: pointer;
+    height: 68px;
+    width: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+#task-form .material-icons.add-task {
+    font-size: 78px;
+    color: var(--primary);
+}

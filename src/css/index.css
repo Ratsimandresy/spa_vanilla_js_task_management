@@ -5,6 +5,7 @@
 @import "./components/taskCard.css";
 @import "./pages//dashboard.css";
 @import "./pages//taskView.css";
+@import "./pages//form.css";
 
 html,
 body {
@@ -16,8 +17,8 @@ body {
         "Helvetica Neue", Helvetica, Arial, sans-serif;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+    --webkit-appearance: none;
 }
-
 ::-webkit-scrollbar {
     display: none;
 }

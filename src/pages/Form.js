@@ -8,15 +8,25 @@ export default class extends AbstractView {
 
     async render() {
         return `
-        <section class="page__content">
-        <h1>Add task</h1>
-        <p>
-            Fugiat voluptate et nisi Lorem cillum anim sit do eiusmod occaecat irure do. Reprehenderit anim fugiat sint exercitation consequat. Sit anim laborum sit amet Lorem adipisicing ullamco duis. Anim in do magna ea pariatur et.
-        </p>
-        <p>
-            <a href="/tasks/task one" data-link>View recent posts</a>.
-        </p>
-    </section>
+        <section id="form-view" class="page__content">
+             <div class="form__content">
+                <div class="form__header">
+                <i class="material-icons md-48">edit_calendar</i>
+                    <h1>Create a Task</h1>
+                </div>
+                <form id="task-form">
+                    <input type="text" value="" placeholder="Task title" name="name" tabindex="1">
+                    <textarea placeholder="Task description" name="Description" tabindex="5" rows="10"></textarea>
+                    <button type="submit">
+                        <i class="material-icons add-task">check_circle</i>
+                    </button>
+                </form>
+            </div>
+        </section>
         `;
+    }
+
+    async after_render() {
+
     }
 }
