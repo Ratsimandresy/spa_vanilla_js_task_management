@@ -85,7 +85,8 @@ export default class extends AbstractView {
                     ...this.task,
                     end_date: new Date(input.value).toISOString(),
                 });
-                await this.render();
+                
+                navigateTo("http://localhost:3000/dashboard");
             });
         } catch (error) {
             console.log(error);

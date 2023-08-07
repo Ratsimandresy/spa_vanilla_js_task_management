@@ -1,8 +1,6 @@
 import Utils from "../utils/Utils.js";
 import { routes } from "./routes.js";
-import Menu from "../components/Menu.js";
 
-const menu = new Menu();
 const { getParams, pathToRegex } = Utils;
 
 const navigateTo = (url) => {

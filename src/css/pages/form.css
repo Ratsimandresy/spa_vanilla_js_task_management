@@ -1,3 +1,5 @@
+@import "../animation.css";
+
 #form-view {
     display: flex;
     justify-content: center;
@@ -19,7 +21,7 @@
     height: 95%;
     width: 85%;
     min-height: 320px;
-    max-width: 800px;
+    max-width: 1024px;
     padding: 12px;
     position: relative;
     opacity: 1;
@@ -55,6 +57,13 @@
     justify-content: space-around;
 }
 
+#task-form p {
+    width: 96%;
+    margin: 0;
+    color: var(--secondary);
+    font-weight: 800;
+}
+
 #task-form input:first-of-type,
 #task-form textarea {
     width: inherit;
@@ -68,6 +77,11 @@
     font-weight: 600;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 4px;
+    transition: 0.3s ease-in-out;
+}
+#task-form input:first-of-type::placeholder,
+#task-form textarea::placeholder {
+    color: var(--grey);
 }
 
 #task-form input:first-of-type {
@@ -109,15 +123,18 @@
     color: var(--error);
 }
 
-.error {
-    /* margin-top: 10px; */
-    color: var(--error);
-    background-color: #ffe0e0;
-    padding: 8px;
+#task-form span.error {
     display: none;
+}
+
+.error {
+    color: var(--error);
+    display: none;
+    animation: 0.5s fadeIn;
 }
 
 .success {
     margin-top: 30px;
     color: var(--success);
+    animation: 1.5s fadeOut;
 }
