@@ -39,7 +39,6 @@ export default class Dashboard extends AbstractView {
             buttons.forEach((button) => {
                 button.addEventListener("click", async (e) => {
                     e.preventDefault();
-                    console.log(e.target);
                     const taskLabel = e.target.dataset.label;
                     const task = e.target.parentNode.parentNode.parentNode;
                     setTimeout(() => {

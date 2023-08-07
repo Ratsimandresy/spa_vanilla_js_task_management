@@ -18,6 +18,7 @@
     align-items: center;
     height: 95%;
     width: 85%;
+    min-height: 320px;
     max-width: 800px;
     padding: 12px;
     position: relative;
@@ -73,22 +74,50 @@
     height: 52px;
 }
 
-#task-form button {
-    background: var(--white);
+#task-form button.add {
+    background: var(--primary);
+    color: var(--white);
     border: none;
     cursor: pointer;
+    cursor: pointer;
+    height: 52px;
+    width: 110px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 4px;
+    transition: 0.3s ease-in-out;
+}
+
+#task-form button.add:hover {
     background: var(--white);
+    color: var(--primary);
+}
+
+#task-form button.add.disabled {
+    background-color: var(--grey);
+    cursor: not-allowed;
+    color: white;
+}
+
+#task-form button.cancel {
+    border: none;
+    background: transparent;
     border: none;
     cursor: pointer;
     height: 68px;
     width: 68px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
+    color: var(--error);
 }
 
-#task-form .material-icons.add-task {
-    font-size: 78px;
-    color: var(--primary);
+.error {
+    /* margin-top: 10px; */
+    color: var(--error);
+    background-color: #ffe0e0;
+    padding: 8px;
+    display: none;
+}
+
+.success {
+    margin-top: 30px;
+    color: var(--success);
 }

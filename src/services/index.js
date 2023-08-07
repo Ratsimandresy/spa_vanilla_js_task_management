@@ -46,6 +46,9 @@ const service = {
     },
     add: async (newTask) => {
         try {
+            if (!newTask.label || !newTask.description) {
+                throw new Error("Some field are missing");
+            }
             const response = await fetch(BASE_URL, {
                 method: "post",
                 body: JSON.stringify(newTask),
