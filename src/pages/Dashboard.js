@@ -57,7 +57,10 @@ export default class Dashboard extends AbstractView {
                     }
                     break;
                 case "unCompleted":
-                    if (!task.classList.contains("completed") && !task.classList.contains("expired")) {
+                    if (
+                        !task.classList.contains("completed") &&
+                        !task.classList.contains("expired")
+                    ) {
                         task.style.display = "flex";
                     } else {
                         task.style.display = "none";
@@ -84,13 +87,13 @@ export default class Dashboard extends AbstractView {
                     <input placeholder="Search for task ..." style="border:none" type="search" id="searchBox">
                 </div>
                 <div class="select">
-                <select class="filter-tasks" name="tasks">
-                    <option value="all"> all </option>
-                    <option value="completed"> completed </option>
-                    <option value="completed"> un-completed </option>
-                    <option value="unCompleted"> expired </option>
-                </select>
-            </div>
+                     <select class="filter-tasks" name="tasks">
+                        <option value="all"> all </option>
+                        <option value="completed"> completed </option>
+                        <option value="completed"> un-completed </option>
+                        <option value="unCompleted"> expired </option>
+                    </select>
+                 </div>
             </div>
          <section id="dashboard" class="page__content">
              <div class="cards_container">
@@ -123,7 +126,7 @@ export default class Dashboard extends AbstractView {
 
             if (searchBox)
                 searchBox.oninput = (e) => {
-                    this.filterTasks(e, allTasks);
+                    this.search();
                 };
 
             checkBoxes.forEach((btn) => {
