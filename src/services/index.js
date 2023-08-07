@@ -50,8 +50,7 @@ const service = {
                 method: "post",
                 body: JSON.stringify(newTask),
             });
-            const json = response.json();
-            return json;
+            return response.status;
         } catch (error) {
             console.log(error);
         }
