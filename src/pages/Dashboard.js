@@ -41,15 +41,59 @@ export default class Dashboard extends AbstractView {
         }
     }
 
+    filterTasks(e, tasks) {
+        console.log(tasks);
+        const allTasks = [...tasks];
+
+        allTasks.forEach((task) => {
+            switch (e.target.value) {
+                case "all":
+                    task.style.display = "flex";
+                    break;
+                case "completed":
+                    if (task.classList.contains("completed")) {
+                        task.style.display = "flex";
+                    } else {
+                        task.style.display = "none";
+                    }
+                    break;
+                case "unCompleted":
+                    if (!task.classList.contains("completed")) {
+                        task.style.display = "flex";
+                    } else {
+                        task.style.display = "none";
+                    }
+                    break;
+                case "unCompleted":
+                    if (!task.classList.contains("expired")) {
+                        task.style.display = "flex";
+                    } else {
+                        task.style.display = "none";
+                    }
+                    break;
+            }
+        });
+    }
+
     async render() {
         try {
             this.tasks = await this.getTasks();
 
             return `
+            <div class="search_container">
+                <div id="search-box">
+                    <input placeholder="Search for task ..." style="border:none" type="search" id="searchBox">
+                </div>
+                <div class="select">
+                <select class="filter-tasks" name="tasks">
+                    <option value="all"> all </option>
+                    <option value="completed"> completed </option>
+                    <option value="completed"> un-completed </option>
+                    <option value="unCompleted"> expired </option>
+                </select>
+            </div>
+            </div>
          <section id="dashboard" class="page__content">
-             <div id="search-box">
-                <input placeholder="Search for task ..." style="border:none" type="search" id="searchBox">
-             </div>
              <div class="cards_container">
                 ${this.tasks && this.tasks.reverse().map(TaskCard).join("")}
             </div>
@@ -68,8 +112,22 @@ export default class Dashboard extends AbstractView {
             const toast = new Toast("", "info", "Task deleted !");
             const toast_container = document.querySelector(".toast_container");
             const checkBoxes = document.querySelectorAll(".round input");
+            const select = document.querySelector(".filter-tasks");
+            const allTasks = document.querySelectorAll(".task_card");
 
-            if (searchBox) searchBox.oninput = this.search;
+            console.log(select, allTasks);
+
+            if (select && allTasks) {
+                select.addEventListener("click", (e) => {
+                    console.log(e.target.value);
+                    this.filterTasks(e, allTasks);
+                });
+            }
+
+            if (searchBox)
+                searchBox.oninput = (e) => {
+                    this.filterTasks(e, allTasks);
+                };
 
             checkBoxes.forEach((btn) => {
                 btn.checked = false;
