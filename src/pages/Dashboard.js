@@ -16,21 +16,29 @@ export default class Dashboard extends AbstractView {
     getTasks = async () => await service.getTasks();
 
     search() {
-        let cards = document.querySelectorAll(".task_card");
-        let search_query = document.getElementById("searchBox").value;
+        try {
+            let cards = document.querySelectorAll(".task_card");
+            let search_query = document.getElementById("searchBox").value;
 
-        cards.forEach((card) => {
-            const dateSearch = card.childNodes[5].childNodes[3].innerText;
-            const titleSearch = card.childNodes[3].childNodes[1].innerText;
-            if (
-                dateSearch.toLowerCase().includes(search_query.toLowerCase()) ||
-                titleSearch.toLowerCase().includes(search_query.toLowerCase())
-            ) {
-                card.classList.remove("is-hidden");
-            } else {
-                card.classList.add("is-hidden");
-            }
-        });
+            cards.forEach((card) => {
+                const dateSearch = card.childNodes[5].childNodes[3].innerText;
+                const titleSearch = card.childNodes[3].childNodes[1].innerText;
+                if (
+                    dateSearch
+                        .toLowerCase()
+                        .includes(search_query.toLowerCase()) ||
+                    titleSearch
+                        .toLowerCase()
+                        .includes(search_query.toLowerCase())
+                ) {
+                    card.classList.remove("is-hidden");
+                } else {
+                    card.classList.add("is-hidden");
+                }
+            });
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     async render() {
@@ -66,7 +74,6 @@ export default class Dashboard extends AbstractView {
             checkBoxes.forEach((btn) => {
                 btn.checked = false;
                 btn.addEventListener("click", (e) => {
-                    console.log(e.target.parentNode.parentNode.childNodes[3]);
                     const title = e.target.parentNode.parentNode.childNodes[3];
                     const card = e.target.parentNode.parentNode;
 

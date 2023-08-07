@@ -17,7 +17,14 @@ const TaskCard = ({ label, description, start_date, end_date }) => {
             </p>
             `;
         }
-        return `<p> </p>`;
+        return `
+             <p>
+                 <i class="material-icons">calendar_month</i>
+                <span>
+                     no due date
+                 </span>
+             </p>
+        `;
     };
 
     const id = label.split(" ").join("-");

@@ -64,7 +64,7 @@ export default class extends AbstractView {
                 cancelButton.addEventListener("click", () => {
                     navigateTo("http://localhost:3000/dashboard");
                 });
-                form.onsubmit = function (e) {
+                form.onsubmit = async function (e) {
                     e.preventDefault();
 
                     if (this.name.value.trim() < 3) {
@@ -97,16 +97,14 @@ export default class extends AbstractView {
 
                     toast.activateToast(this.submitButton, 2500);
 
-                    /*  if (this.isValid) {
+                    if (this.isValid) {
                         await service.add(newTask);
                     }
 
                     setTimeout(() => {
                         navigateTo("http://localhost:3000/dashboard");
-                    }, 4000); */
+                    }, 4000);
                 };
-
-                
             }
         } catch (error) {
             console.log(error);
