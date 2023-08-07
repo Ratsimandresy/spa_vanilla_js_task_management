@@ -38,6 +38,26 @@ export default class Dashboard extends AbstractView {
         try {
             const toast = new Toast("", "info", "Task deleted !");
             const toast_container = document.querySelector(".toast_container");
+            const checkBoxes = document.querySelectorAll(".round input");
+
+            checkBoxes.forEach((btn) => {
+                btn.checked = false;
+                btn.addEventListener("click", (e) => {
+                    console.log(e.target.parentNode.parentNode.childNodes[3]);
+                    const title = e.target.parentNode.parentNode.childNodes[3];
+                    const card = e.target.parentNode.parentNode;
+
+                    if (e.target.checked) {
+                        title.style.textDecoration = "line-through";
+                        title.style.color = "#2eb1a1";
+                        card.style.backgroundColor = "#f3f3f3";
+                    } else if (!e.target.checked) {
+                        title.style.textDecoration = "none";
+                        title.style.color = "white";
+                        card.style.backgroundColor = "#a0c0d6";
+                    }
+                });
+            });
 
             if (toast_container) {
                 toast_container.innerHTML = await toast.render();

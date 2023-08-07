@@ -1,8 +1,7 @@
 import Utils from "../../utils/Utils.js";
 
-const TaskCard = ({ label, start_date, end_date }) => {
+const TaskCard = ({ label, description, start_date, end_date }) => {
     let dueDate;
-
     if (end_date) {
         dueDate = Utils.formatDate(end_date);
     }
@@ -26,7 +25,7 @@ const TaskCard = ({ label, start_date, end_date }) => {
     const timePassed = Utils.timeSince(start_date);
 
     return `
-        <div class="task_card" id="${id}" key="${id}">
+        <div class="task_card" id="${id}" key="${id}" data-name="${label}">
             <div class="round">
                 <input type="checkbox" checked id="checkbox-${label}" />
                  <label for="checkbox-${label}"></label>
