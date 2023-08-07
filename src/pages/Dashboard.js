@@ -42,7 +42,6 @@ export default class Dashboard extends AbstractView {
     }
 
     filterTasks(e, tasks) {
-        console.log(tasks);
         const allTasks = [...tasks];
 
         allTasks.forEach((task) => {
@@ -58,7 +57,7 @@ export default class Dashboard extends AbstractView {
                     }
                     break;
                 case "unCompleted":
-                    if (!task.classList.contains("completed")) {
+                    if (!task.classList.contains("completed") && !task.classList.contains("expired")) {
                         task.style.display = "flex";
                     } else {
                         task.style.display = "none";
@@ -114,8 +113,6 @@ export default class Dashboard extends AbstractView {
             const checkBoxes = document.querySelectorAll(".round input");
             const select = document.querySelector(".filter-tasks");
             const allTasks = document.querySelectorAll(".task_card");
-
-            console.log(select, allTasks);
 
             if (select && allTasks) {
                 select.addEventListener("click", (e) => {
