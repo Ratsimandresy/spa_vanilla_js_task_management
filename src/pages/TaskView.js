@@ -2,6 +2,7 @@ import AbstractView from "./AbstractView.js";
 import service from "../services/index.js";
 import Utils from "../utils/Utils.js";
 import { navigateTo } from "../router/index.js";
+import Toast from "../components/Toast.js";
 
 const { formatDate } = Utils;
 
@@ -65,29 +66,38 @@ export default class extends AbstractView {
                             <i class="material-icons due-date">check_circle</i>
                          </div>
                 </div>
+                <div class="toast_container"></div>
             </section>
         `;
     }
 
     async after_render() {
         try {
+            const toast = new Toast("", "edit", "Task Due Date updated", 2500);
+            const toast_container = document.querySelector(
+                "#task-view .toast_container"
+            );
             const input = document.getElementById("due-date-input");
-
-            input.addEventListener("change", (e) => {
-                e.preventDefault();
-                this.setDueDate(e.target.value);
-            });
-
             const check = document.querySelector(".material-icons.due-date");
+            if (input && check && toast_container) {
+                toast_container.innerHTML = await toast.render();
+                toast.activateToast(check, 3000);
 
-            check.addEventListener("click", async () => {
-                await service.update(this.taskId, {
-                    ...this.task,
-                    end_date: new Date(input.value).toISOString(),
+                input.addEventListener("change", (e) => {
+                    e.preventDefault();
+                    this.setDueDate(e.target.value);
                 });
-                
-                navigateTo("http://localhost:3000/dashboard");
-            });
+
+                check.addEventListener("click", async () => {
+                    await service.update(this.taskId, {
+                        ...this.task,
+                        end_date: new Date(input.value).toISOString(),
+                    });
+                    setTimeout(() => {
+                        navigateTo("http://localhost:3000/dashboard");
+                    }, 4000);
+                });
+            }
         } catch (error) {
             console.log(error);
             navigateTo("http://localhost:3000/error");

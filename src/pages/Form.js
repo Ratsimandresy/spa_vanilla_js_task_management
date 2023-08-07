@@ -35,7 +35,7 @@ export default class extends AbstractView {
                     <textarea placeholder="task description..." name="description" tabindex="5" rows="20"></textarea>
                     <span class="error description-error"></span>
 
-                    <button class="add" type="submit" name="submit">
+                    <button class="add" type="submit" name="submitButton">
                         Add
                     </button>
                     <button type="button" class="cancel">Cancel</button>
@@ -58,13 +58,13 @@ export default class extends AbstractView {
             const cancelButton = document.querySelector("button.cancel");
             const addButton = document.querySelector("button.add");
 
-            if (toast_container && cancelButton && form) {
+            if (toast_container && cancelButton && form && addButton) {
                 toast_container.innerHTML = await toast.render();
 
                 cancelButton.addEventListener("click", () => {
                     navigateTo("http://localhost:3000/dashboard");
                 });
-                form.onsubmit = async function (e) {
+                form.onsubmit = function (e) {
                     e.preventDefault();
 
                     if (this.name.value.trim() < 3) {
@@ -95,15 +95,18 @@ export default class extends AbstractView {
 
                     this.isValid = true;
 
-                    if (this.isValid) {
+                    toast.activateToast(this.submitButton, 2500);
+
+                    /*  if (this.isValid) {
                         await service.add(newTask);
-                        toast.activateToast(addButton, 2500);
                     }
 
                     setTimeout(() => {
                         navigateTo("http://localhost:3000/dashboard");
-                    }, 4000);
+                    }, 4000); */
                 };
+
+                
             }
         } catch (error) {
             console.log(error);
