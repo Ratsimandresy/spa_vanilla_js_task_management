@@ -179,3 +179,7 @@ a {
 .toast.active ~ button {
     pointer-events: none;
 }
+
+textarea:focus, input:focus{
+    outline: none;
+}

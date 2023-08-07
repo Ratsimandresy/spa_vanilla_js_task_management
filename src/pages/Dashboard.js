@@ -48,7 +48,7 @@ export default class Dashboard extends AbstractView {
             return `
          <section id="dashboard" class="page__content">
              <div id="search-box">
-                <input type="search" id="searchBox">
+                <input placeholder="Search for task ..." style="border:none" type="search" id="searchBox">
              </div>
              <div class="cards_container">
                 ${this.tasks && this.tasks.reverse().map(TaskCard).join("")}
