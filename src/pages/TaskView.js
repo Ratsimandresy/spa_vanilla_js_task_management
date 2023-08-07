@@ -1,6 +1,7 @@
 import AbstractView from "./AbstractView.js";
 import service from "../services/index.js";
 import Utils from "../utils/Utils.js";
+import { navigateTo } from "../router/index.js";
 
 const { formatDate } = Utils;
 
@@ -88,6 +89,7 @@ export default class extends AbstractView {
             });
         } catch (error) {
             console.log(error);
+            navigateTo("http://localhost:3000/error");
         }
     }
 }

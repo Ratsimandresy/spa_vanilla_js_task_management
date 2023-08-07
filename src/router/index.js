@@ -25,7 +25,7 @@ const router = async () => {
     if (!match) {
         match = {
             route: routes[routes.length - 1],
-            result: ["/page-not-found"],
+            result: ["/error"],
         };
     }
 

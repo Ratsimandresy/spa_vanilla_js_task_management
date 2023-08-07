@@ -11,5 +11,5 @@ export const routes = [
     { path: "/tasks/:id", view: TaskView },
     { path: "/form", view: Form },
     { path: "/calendar", view: Calendar },
-    { path: "/page-not_found", view: Error404 },
+    { path: "/error", view: Error404 },
 ];

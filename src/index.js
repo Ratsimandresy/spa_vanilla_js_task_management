@@ -27,19 +27,4 @@ document.addEventListener("DOMContentLoaded", () => {
             collapse(e);
         }
     });
-
-    document.body.addEventListener("click", async (e) => {
-        if (e.target.matches("[data-dlt-btn]")) {
-            const taskLabel = e.target.dataset.label;
-            const task = e.target.parentNode.parentNode.parentNode;
-            setTimeout(() => {
-                task.classList.add("deleted");
-            }, 300);
-
-            setTimeout(async () => {
-                task.remove();
-                await service.remove(taskLabel);
-            }, 1000);
-        }
-    });
 });
