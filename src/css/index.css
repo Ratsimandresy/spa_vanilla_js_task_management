@@ -116,8 +116,8 @@ a {
     padding: 20px 35px 20px 25px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     overflow: hidden;
-    transform: translateX(calc(100% + 30px));
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+    opacity: 0;
 }
 
 .toast i.material-icons {
@@ -125,7 +125,8 @@ a {
 }
 
 .toast.active {
-    transform: translateX(0%);
+    animation: .4s fadeIne;
+    opacity: 1;
 }
 
 .toast .toast-content {

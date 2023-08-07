@@ -46,6 +46,7 @@
 .round {
     position: relative;
     flex: 15%;
+    margin-bottom: 12px;
 }
 
 .round label {
