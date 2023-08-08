@@ -2,6 +2,7 @@ import AbstractView from "./AbstractView.js";
 import service from "../services/index.js";
 import TaskCard from "../components/Dashboard/TaskCard.js";
 import { navigateTo } from "../router/index.js";
+import Utils from "../utils/Utils.js";
 
 export default class extends AbstractView {
     tasks;
@@ -40,6 +41,19 @@ export default class extends AbstractView {
     async render() {
         try {
             this.tasks = await this.getTasks();
+
+            const mappedTasks = [
+                ...this.tasks.map(
+                    (task) =>
+                        (task = {
+                            ...task,
+                            state: Utils.checkPastDate(task.end_date)
+                                ? "expired"
+                                : "inProgress",
+                        })
+                ),
+            ];
+            localStorage.setItem("tasksList", JSON.stringify(mappedTasks));
 
             const today = new Date();
             const todayDay = today.getDay();

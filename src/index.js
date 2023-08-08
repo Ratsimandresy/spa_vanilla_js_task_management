@@ -7,6 +7,9 @@ const { initializeApp, toggleActive, collapse } = Utils;
 window.addEventListener("load", async () => {
     await initializeApp();
     await router();
+    let storage = JSON.parse(localStorage.getItem("todoList"));
+
+    storage = storage ? storage : [];
 });
 
 window.addEventListener("popstate", router);

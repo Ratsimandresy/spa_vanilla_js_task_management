@@ -45,7 +45,7 @@ export default class Dashboard extends AbstractView {
         const filterMap = {
             all: () => true,
             completed: (task) => task.classList.contains("completed"),
-            "un-completed": (task) => task.classList.contains("unCompleted"),
+            inProgress: (task) => task.classList.contains("inProgress"),
             expired: (task) => task.classList.contains("expired"),
         };
 
@@ -63,6 +63,10 @@ export default class Dashboard extends AbstractView {
         try {
             this.tasks = await this.getTasks();
 
+            const tasksList = JSON.parse(localStorage.getItem("tasksList"));
+
+            console.log(tasksList);
+
             return `
             <div class="search_container">
                 <div id="search-box">
@@ -72,7 +76,7 @@ export default class Dashboard extends AbstractView {
                      <select class="filter-tasks" name="tasks">
                         <option value="all"> all </option>
                         <option value="completed"> completed </option>
-                        <option value="un-completed"> un-completed </option>
+                        <option value="inProgress"> inProgress </option>
                         <option value="expired"> expired </option>
                     </select>
                  </div>
@@ -121,12 +125,12 @@ export default class Dashboard extends AbstractView {
                         title.style.textDecoration = "line-through";
                         title.style.color = "#2eb1a1";
                         card.style.backgroundColor = "#f3f3f3";
-                        card.classList.replace("unCompleted", "completed");
+                        card.classList.replace("inProgress", "completed");
                     } else if (!e.target.checked) {
                         title.style.textDecoration = "none";
                         title.style.color = "white";
                         card.style.backgroundColor = "#a0c0d6";
-                        card.classList.replace("completed", "unCompleted");
+                        card.classList.replace("completed", "inProgress");
                     }
                     this.render();
                 });

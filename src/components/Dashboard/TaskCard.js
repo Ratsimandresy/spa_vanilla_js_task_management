@@ -35,7 +35,7 @@ const TaskCard = ({ label, description, start_date, end_date }) => {
 
     return `
         <div class="task_card  ${
-            isPast ? "expired" : "unCompleted"
+            isPast ? "expired" : "inProgress"
         }" id="${id}" key="${id}" data-name="${label}">
             <div class="round">
                 <input type="checkbox" checked id="checkbox-${label}" />
