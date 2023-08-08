@@ -182,6 +182,10 @@ a {
     pointer-events: none;
 }
 
+.task_card {
+    animation: 0.4s fadeIn;
+}
+
 textarea:focus,
 input:focus {
     outline: none;
