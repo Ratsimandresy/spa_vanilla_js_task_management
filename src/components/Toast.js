@@ -28,7 +28,7 @@ export default class Toast extends AbstractView {
         closeIcon.addEventListener("click", () => {
             toastElement.classList.remove("active");
 
-            clearTimeout(timer);
+           // clearTimeout(timer);
         });
     }
 

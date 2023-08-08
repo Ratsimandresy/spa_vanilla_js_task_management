@@ -38,6 +38,7 @@ export default class extends AbstractView {
                     <button class="add" type="submit" name="submitButton">
                         Add
                     </button>
+                    <span class="success"></span>
                     <button type="button" class="cancel">Cancel</button>
                 </form>
             </div>
@@ -57,6 +58,7 @@ export default class extends AbstractView {
             const form = document.forms["add-task-form"];
             const cancelButton = document.querySelector("button.cancel");
             const addButton = document.querySelector("button.add");
+            const errors = document.querySelectorAll(".error");
 
             if (toast_container && cancelButton && form && addButton) {
                 toast_container.innerHTML = await toast.render();
@@ -67,44 +69,45 @@ export default class extends AbstractView {
                 form.onsubmit = async function (e) {
                     e.preventDefault();
 
-                    if (this.name.value.trim() < 3) {
-                        document.querySelector(".name-error").innerHTML =
-                            "Please enter a valid title";
-                        document.querySelector(".name-error").style.display =
-                            "block";
-                        e.preventDefault();
+                    const nameValue = this.name.value.trim();
+                    const descriptionValue = this.description.value.trim();
+
+                    const nameError = document.querySelector(".name-error");
+                    const descriptionError =
+                        document.querySelector(".description-error");
+
+                    nameError.innerHTML = "";
+                    nameError.style.display = "none";
+                    descriptionError.innerHTML = "";
+                    descriptionError.style.display = "none";
+
+                    if (nameValue.length < 3) {
+                        nameError.innerHTML = "Please enter a valid title";
+                        nameError.style.display = "block";
                         return false;
                     }
 
-                    if (this.description.value.trim() < 3) {
-                        document.querySelector(".description-error").innerHTML =
+                    if (descriptionValue.length < 3) {
+                        descriptionError.innerHTML =
                             "Please enter a valid description";
-                        document.querySelector(
-                            ".description-error"
-                        ).style.display = "block";
-                        e.preventDefault();
+                        descriptionError.style.display = "block";
                         return false;
                     }
 
                     const newTask = {
                         ...this.task,
-                        label: this.name.value,
-                        description: this.description.value,
+                        label: nameValue,
+                        description: descriptionValue,
                         start_date: new Date().toISOString(),
                     };
 
-                    this.isValid = true;
-
-                    toast.activateToast(this.submitButton, 2500);
-
-                    if (this.isValid) {
-                        await service.add(newTask);
-                    }
+                    await service.add(newTask);
 
                     setTimeout(() => {
                         navigateTo("http://localhost:3000/dashboard");
-                    }, 4000);
+                    }, 3000);
                 };
+                toast.activateToast(addButton, 2500);
             }
         } catch (error) {
             console.log(error);

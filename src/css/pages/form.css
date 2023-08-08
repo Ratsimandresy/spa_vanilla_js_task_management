@@ -124,7 +124,7 @@
     color: var(--error);
 }
 
-#task-form span.error {
+#task-form span.error, #task-form span.success {
     display: none;
 }
 
@@ -136,6 +136,7 @@
 
 .success {
     margin-top: 30px;
+    display: none;
     color: var(--success);
-    animation: 1.5s fadeOut;
+    animation: .6s fadeIne;
 }
