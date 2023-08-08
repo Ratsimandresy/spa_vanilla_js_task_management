@@ -41,12 +41,13 @@ export default class extends AbstractView {
         return `
             <section id="task-view" class="page__content">
                 <div class="task__content">
-                    <div class="inner_card">
+                    <div class="inner_card header">
                         <div>
                             <h1>${this.task.label}</h1>
-                            <div class="task_state in_progress">in progress</div>
                         </div>
-                        <small>
+                    </div>
+                    <div class="createdAt">
+                        <small >
                             created at: ${createdAt}
                         </small>
                     </div>
