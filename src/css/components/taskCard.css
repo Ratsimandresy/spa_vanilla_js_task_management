@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
     height: 62px;
-    width: 410px;
+    width: 60%;
     padding: 12px;
     position: relative;
     opacity: 1;
@@ -15,9 +15,9 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-@media (width <= 1024px) {
+@media (width <= 744px) {
     #dashboard .task_card {
-        width: auto;
+        width: 85%;
     }
 }
 
@@ -118,6 +118,27 @@
 .task_card p:first-of-type a {
     text-decoration: none;
     color: var(--white-less);
+}
+
+@media (width <= 744px) {
+    .task_card p:first-of-type a {
+        text-overflow: ellipsis;
+        display: block;
+        height: 24px;
+        width: 146px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+@media (width <= 655px) {
+    .task_card p:first-of-type a {
+        text-overflow: ellipsis;
+        display: block;
+        height: 24px;
+        width: 67px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
 }
 
 .task_card p:first-of-type small {
