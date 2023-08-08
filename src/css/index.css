@@ -118,6 +118,7 @@ a {
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
     opacity: 0;
+    z-index: 2;
 }
 
 .toast i.material-icons {
@@ -125,7 +126,7 @@ a {
 }
 
 .toast.active {
-    animation: .4s fadeIne;
+    animation: 0.4s fadeIne;
     opacity: 1;
 }
 
@@ -180,6 +181,7 @@ a {
     pointer-events: none;
 }
 
-textarea:focus, input:focus{
+textarea:focus,
+input:focus {
     outline: none;
 }

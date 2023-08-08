@@ -41,38 +41,20 @@ export default class Dashboard extends AbstractView {
         }
     }
 
-    filterTasks(e, tasks) {
-        const allTasks = [...tasks];
+    filterTasks(query, tasks) {
+        const filterMap = {
+            all: () => true,
+            completed: (task) => task.classList.contains("completed"),
+            "un-completed": (task) => task.classList.contains("unCompleted"),
+            expired: (task) => task.classList.contains("expired"),
+        };
 
-        allTasks.forEach((task) => {
-            switch (e.target.value) {
-                case "all":
-                    task.style.display = "flex";
-                    break;
-                case "completed":
-                    if (task.classList.contains("completed")) {
-                        task.style.display = "flex";
-                    } else {
-                        task.style.display = "none";
-                    }
-                    break;
-                case "unCompleted":
-                    if (
-                        !task.classList.contains("completed") &&
-                        !task.classList.contains("expired")
-                    ) {
-                        task.style.display = "flex";
-                    } else {
-                        task.style.display = "none";
-                    }
-                    break;
-                case "unCompleted":
-                    if (!task.classList.contains("expired")) {
-                        task.style.display = "flex";
-                    } else {
-                        task.style.display = "none";
-                    }
-                    break;
+        tasks.forEach((task) => {
+            const filterFunction = filterMap[query];
+            if (filterFunction && filterFunction(task)) {
+                task.style.display = "flex";
+            } else {
+                task.style.display = "none";
             }
         });
     }
@@ -90,8 +72,8 @@ export default class Dashboard extends AbstractView {
                      <select class="filter-tasks" name="tasks">
                         <option value="all"> all </option>
                         <option value="completed"> completed </option>
-                        <option value="completed"> un-completed </option>
-                        <option value="unCompleted"> expired </option>
+                        <option value="un-completed"> un-completed </option>
+                        <option value="expired"> expired </option>
                     </select>
                  </div>
             </div>
@@ -119,8 +101,8 @@ export default class Dashboard extends AbstractView {
 
             if (select && allTasks) {
                 select.addEventListener("click", (e) => {
-                    console.log(e.target.value);
-                    this.filterTasks(e, allTasks);
+                    const value = e.target.value;
+                    this.filterTasks(value, allTasks);
                 });
             }
 
@@ -139,12 +121,13 @@ export default class Dashboard extends AbstractView {
                         title.style.textDecoration = "line-through";
                         title.style.color = "#2eb1a1";
                         card.style.backgroundColor = "#f3f3f3";
+                        card.classList.replace("unCompleted", "completed");
                     } else if (!e.target.checked) {
                         title.style.textDecoration = "none";
                         title.style.color = "white";
                         card.style.backgroundColor = "#a0c0d6";
+                        card.classList.replace("completed", "unCompleted");
                     }
-                    card.classList.toggle("completed");
                     this.render();
                 });
             });
