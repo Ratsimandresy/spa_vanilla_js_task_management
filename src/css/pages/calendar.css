@@ -1,0 +1,115 @@
+#calendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calendar_container {
+    width: 90%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#calendar_container .month {
+    padding: 10px;
+    background: var(--primary);
+    text-align: center;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+#calendar_container .month ul {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+#calendar_container .month ul li {
+    color: var(--white);
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+#calendar_container #weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: var(--grey);
+}
+
+#weekdays li {
+    color: var(--white);
+    text-align: center;
+}
+
+#calendar_container #days {
+    padding: 10px 0;
+    background: var(--white-grey);
+    margin: 0;
+}
+
+#calendar_container #days li {
+    list-style-type: none;
+    text-align: center;
+    font-size: 16px;
+    color: #777;
+    padding: 15px;
+    margin: 3px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+#calendar_container #days li.empty {
+    border: none;
+    cursor: default;
+}
+
+#calendar_container #days li.active {
+    background: #1abc9c;
+    color: white !important;
+}
+
+#calendar_container #next,
+#calendar_container #prev {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 720px) {
+    #calendar_container .weekdays li,
+    #calendar_container #days li {
+        width: 13.1%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #calendar_container .weekdays li,
+    #calendar_container #days li {
+        width: 12.5%;
+    }
+    #calendar_container #days li .active {
+        padding: 2px;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    #calendar_container .weekdays li,
+    #calendar_container #days li {
+        width: 12.2%;
+    }
+}
+
+#calendar_container #days,
+#calendar_container #weekdays {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+@media all and (-ms-high-contrast: none) {
+    #calendar_container #days {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}

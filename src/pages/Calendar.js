@@ -8,15 +8,31 @@ export default class extends AbstractView {
 
     async render() {
         return `
-        <section class="page__content">
-        <h1>Calendar</h1>
-        <p>
-            Fugiat voluptate et nisi Lorem cillum anim sit do eiusmod occaecat irure do. Reprehenderit anim fugiat sint exercitation consequat. Sit anim laborum sit amet Lorem adipisicing ullamco duis. Anim in do magna ea pariatur et.
-        </p>
-        <p>
-            <a href="/posts" data-link>View recent posts</a>.
-        </p>
+        <section id="calendar" class="page__content">
+            <div id="calendar_container">
+                 <div class="month">
+                    <ul>
+                    <li id="prev">&#10094;</li>
+                    <li id="month"></li>
+                    <li id="year"></li>
+                    <li id="next">&#10095;</li>
+                    </ul>
+                </div>
+                <ul id="weekdays">
+                    <li>Mon</li>
+                    <li>Tue</li>
+                    <li>Wen</li>
+                    <li>Thu</li>
+                    <li>Fri</li>
+                    <li>Sat</li>
+                    <li>Sun</li>
+                </ul>
+            <ul id="days"></ul>
     </section>
         `;
+    }
+
+    async after_render() {
+
     }
 }

@@ -9,13 +9,14 @@
 
 #task-view .task__content {
     background-color: var(--secondary-light);
-    border-radius: 8px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    height: 90%;
+    width: 78%;
     display: flex;
     flex-direction: column;
     gap: 12px;
     align-items: center;
-    height: 95%;
-    width: 85%;
     max-width: 800px;
     padding: 12px;
     position: relative;

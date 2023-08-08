@@ -89,7 +89,7 @@ export default class extends AbstractView {
                     </div>
                 </header>
                 <div class="today_tasks">
-                    <h2>Today's tasks</h2>
+                    <h2>Today's tasks </h2>
                     <div class="today_task_container">
                         ${this.renderTodayTasks(todayTasks)}
                     </div>
