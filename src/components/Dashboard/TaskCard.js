@@ -20,7 +20,7 @@ const TaskCard = ({ label, description, start_date, end_date }) => {
         return `
              <p>
                  <i class="material-icons">calendar_month</i>
-                <span>
+                <span class="no-due-date">
                      no due date
                  </span>
              </p>

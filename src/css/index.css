@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+@import "./pages/home.css";
 @import "./nav.css";
 @import "./animation.css";
 @import "./components/taskCard.css";
