@@ -47,7 +47,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--primary);
+    background: var(--secondary-light);
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
 }
@@ -71,6 +71,7 @@
     height: 32px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .task__content h1::first-letter {
@@ -97,16 +98,23 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
+    padding-left: 12px;
 }
 
 .task__content .inner_card.description {
     height: 50%;
 }
 
-.task__content .inner_card.description small {
+.task__content .inner_card.description p {
     font-size: medium;
-    font-weight: 500;
+    font-weight: 700;
+    color: var(--secondary-dark);
+    padding-left: 12px;
+}
+
+.task__content .inner_card.description .task_description p {
+    padding-left: 0px;
 }
 
 .task__content .inner_card p {
@@ -117,6 +125,10 @@
     color: var(--primary-dark);
     width: 21px;
     height: 24px;
+}
+
+.task__content .inner_card div.task_dueDate p {
+    color: var(--secondary-dark);
 }
 
 .inner_card .task_dueDate span {
@@ -139,7 +151,7 @@
 }
 
 .inner_card #due-date-input {
-    border: 1px solid var(--grey);
+    border: none;
     border-radius: 6px;
     height: 20px;
 }
@@ -147,4 +159,9 @@
 .inner_card.bg .material-icons.due-date {
     color: var(--success);
     cursor: pointer;
+}
+
+.inner_card.bg .date_picker {
+    padding-left: 16px;
+    color: var(--primary-dark);
 }

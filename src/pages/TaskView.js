@@ -56,17 +56,19 @@ export default class extends AbstractView {
                             <i class="material-icons">description_outlined</i>
                             <p>Description:</p>
                         </div>
-                        <small>${this.task.description}</small>
+                        <p>${this.task.description}</p>
                     </div>
                     <div class="inner_card bg">
                         <div class="task_dueDate">
                             <i class="material-icons">schedule</i>
                             <p>Due date :</p><span>${dueAt}</span>
                         </div>
+                        <div class="date_picker">
+                            <label for="due-date-input">Set a due date : </label>
                             <input lang="fr-CA" id="due-date-input" type="date" ${inputDateValue()}/>
                             <i class="material-icons due-date">check_circle</i>
                          </div>
-                </div>
+                    </div>
                 <div class="toast_container"></div>
             </section>
         `;

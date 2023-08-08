@@ -63,10 +63,6 @@ export default class Dashboard extends AbstractView {
         try {
             this.tasks = await this.getTasks();
 
-            const tasksList = JSON.parse(localStorage.getItem("tasksList"));
-
-            console.log(tasksList);
-
             return `
             <div class="search_container">
                 <div id="search-box">

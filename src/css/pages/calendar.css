@@ -11,7 +11,7 @@
 
 #calendar_container .month {
     padding: 10px;
-    background: var(--primary);
+    background: var(--secondary-light);
     text-align: center;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
@@ -30,6 +30,10 @@
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 3px;
+}
+
+#calendar #month {
+    background-color: var(--secondary-light);
 }
 
 #calendar_container #weekdays {

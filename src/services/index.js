@@ -51,7 +51,7 @@ const service = {
             }
             const response = await fetch(BASE_URL, {
                 method: "post",
-                body: JSON.stringify(newTask),
+                body: JSON.stringify({...newTask, state: "inProgress"}),
             });
             return response.status;
         } catch (error) {
